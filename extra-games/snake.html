@@ -1,0 +1,8 @@
+<!DOCTYPE html><html><body style="margin:0;background:#111;color:#fff;font-family:monospace;text-align:center"><p>Snake — arrow keys / WASD. Score: <span id=s>0</span></p><canvas id=c width=400 height=400 style="background:#000;border:2px solid #0f0"></canvas><script>
+const c=document.getElementById('c'),x=c.getContext('2d');let sn,d,f,sc,t;
+function init(){sn=[{x:10,y:10}];d={x:1,y:0};f={x:5,y:5};sc=0;s.textContent=0}
+init();
+onkeydown=e=>{const m={ArrowUp:[0,-1],w:[0,-1],ArrowDown:[0,1],s:[0,1],ArrowLeft:[-1,0],a:[-1,0],ArrowRight:[1,0],d:[1,0]}[e.key];if(m&&!(m[0]==-d.x&&m[1]==-d.y)){d={x:m[0],y:m[1]};e.preventDefault()}};
+setInterval(()=>{const h={x:(sn[0].x+d.x+20)%20,y:(sn[0].y+d.y+20)%20};if(sn.some(p=>p.x==h.x&&p.y==h.y))init();else{sn.unshift(h);if(h.x==f.x&&h.y==f.y){sc++;s.textContent=sc;f={x:Math.random()*20|0,y:Math.random()*20|0}}else sn.pop()}
+x.fillStyle='#000';x.fillRect(0,0,400,400);x.fillStyle='#f33';x.fillRect(f.x*20,f.y*20,18,18);x.fillStyle='#0f0';sn.forEach(p=>x.fillRect(p.x*20,p.y*20,18,18))},110);
+</script></body></html>
