@@ -1,4 +1,0 @@
-<!DOCTYPE html><html><body style="margin:0;background:#111;color:#fff;font-family:monospace;text-align:center"><h3>Memory Match — moves: <span id=m>0</span></h3><div id=b style="display:grid;grid-template-columns:repeat(4,80px);gap:6px;justify-content:center"></div><br><button onclick=r()>Restart</button><script>
-let a,o,n,k;
-function r(){const e=[...'🍎🍌🍇🍒🍉🍋🥝🍓'];a=[...e,...e].sort(()=>Math.random()-.5);o=[];n=0;m.textContent=0;b.innerHTML='';a.forEach((v,i)=>{const c=document.createElement('button');c.style.cssText='height:80px;font-size:36px;background:#335;';c.onclick=()=>{if(o.length==2||c.textContent)return;c.textContent=v;o.push([c,v]);if(o.length==2){m.textContent=++n;if(o[0][1]==o[1][1])o=[];else setTimeout(()=>{o.forEach(q=>q[0].textContent='');o=[]},700)}};b.appendChild(c)})}
-r();</script></body></html>
